@@ -1,10 +1,22 @@
 const express=require('express');
+const cors=require('cors');
 const PORT=process.env.PORT || 9000;
 
 const app=express();
 
+app.use(cors());
+
+app.get('/user-data', (req, res)=>{
+    const user={
+        name:'jim bob',
+        email:'jimthebob@mail.com'
+    }
+
+    res.send(user);
+});
+
 app.get('/', (req, res)=>{
-    res.send('<h1>App is working!!</h1>');
+    res.send('<h1>Breh</h1>');
 });
 
 app.listen(PORT, ()=>{
